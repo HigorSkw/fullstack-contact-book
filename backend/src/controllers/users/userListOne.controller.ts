@@ -1,19 +1,17 @@
 import { Request, Response } from "express";
+import { AppError, handleError } from "../../errors/ErrorHTTP";
 import userListOneService from "../../services/users/userListOne.service";
 
 const userListOneController = async (req: Request, res: Response) => {
   try {
-    const email = req.userEmail;
+    const userID = req.userID;
 
-    const user = await userListOneService(email);
+    const user = await userListOneService(userID);
 
     return res.status(200).send(user);
   } catch (err) {
-    if (err instanceof Error) {
-      return res.status(400).send({
-        error: err.name,
-        message: err.message,
-      });
+    if (err instanceof AppError) {
+      handleError(err, res);
     }
   }
 };

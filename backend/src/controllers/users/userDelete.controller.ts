@@ -1,19 +1,17 @@
 import { Request, Response } from "express";
+import { AppError, handleError } from "../../errors/ErrorHTTP";
 import userDeleteService from "../../services/users/userDelete.service";
 
 const userDeleteController = async (req: Request, res: Response) => {
   try {
-    const email = req.userEmail;
+    const idUser = req.userID;
 
-    const user = await userDeleteService(email);
+    const user = await userDeleteService(idUser);
 
     return res.status(200).json({ message: "User deleted with sucess!" });
   } catch (err) {
-    if (err instanceof Error) {
-      return res.status(400).send({
-        error: err.name,
-        message: err.message,
-      });
+    if (err instanceof AppError) {
+      handleError(err, res);
     }
   }
 };

@@ -1,21 +1,19 @@
 import { Request, Response } from "express";
+import { AppError, handleError } from "../../errors/ErrorHTTP";
 import userUpdateService from "../../services/users/userUpdate.service";
 
 const userUpdateController = async (req: Request, res: Response) => {
   try {
-    const email = req.userEmail;
+    const userID = req.userID;
 
     const { id, ...updateValues } = req.body;
 
-    const user = await userUpdateService(email, updateValues);
+    const user = await userUpdateService(userID, updateValues);
 
-    return res.status(200).json({ message: "Usuario atualizado" });
+    return res.status(200).json(user);
   } catch (err) {
-    if (err instanceof Error) {
-      return res.status(400).send({
-        error: err.name,
-        message: err.message,
-      });
+    if (err instanceof AppError) {
+      handleError(err, res);
     }
   }
 };

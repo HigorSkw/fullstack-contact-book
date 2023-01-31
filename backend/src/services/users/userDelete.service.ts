@@ -1,12 +1,12 @@
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
 
-const userDeleteService = async (email: string) => {
+const userDeleteService = async (id: string) => {
   const userRepository = AppDataSource.getRepository(User);
 
   let users = await userRepository.find();
 
-  let account = users.find((user) => user.email === email);
+  let account = users.find((user) => user.id === id);
 
   await userRepository.delete(account!.id);
 

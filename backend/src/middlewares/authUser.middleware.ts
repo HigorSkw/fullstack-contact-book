@@ -9,7 +9,7 @@ export const authUser = (req: Request, res: Response, next: NextFunction) => {
       token as string,
       process.env.JWT_SECRET as string,
       (err: any, decoded: any) => {
-        req.userEmail = decoded.email;
+        req.userID = decoded.userID;
         next();
       }
     );

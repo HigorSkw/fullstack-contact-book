@@ -19,7 +19,7 @@ export class Customer {
   email: string;
 
   @Column()
-  telefone: number;
+  telefone: string;
 
   @CreateDateColumn({
     name: "created_at",

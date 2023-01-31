@@ -2,6 +2,7 @@ import { User } from "../../entities/user.entity";
 import { IUserCreate, IUser } from "../../interfaces/user";
 import { AppDataSource } from "../../data-source";
 import bcrypt from "bcrypt";
+import { AppError } from "../../errors/ErrorHTTP";
 
 const userCreateService = async ({
   name,
@@ -9,13 +10,20 @@ const userCreateService = async ({
   telefone,
   password,
 }: IUserCreate) => {
+  if (!name || !email || !telefone || !password) {
+    throw new AppError(
+      406,
+      "Fields: Name, Email, Password and Telefone is necessary"
+    );
+  }
+
   const userRepository = AppDataSource.getRepository(User);
   const users = await userRepository.find();
 
   const emailAlreadyExists = users.find((user) => user.email === email);
 
   if (emailAlreadyExists) {
-    throw new Error("Email Already Exists");
+    throw new AppError(400, "Email Already Exists");
   }
 
   const user = new User();
