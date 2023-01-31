@@ -13,3 +13,7 @@ export interface IUserCreate {
   telefone: string;
   password: string;
 }
+
+export interface IUserListOne {
+  authorization?: string;
+}
