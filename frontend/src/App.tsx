@@ -1,9 +1,10 @@
+import { RoutesMain } from "./Routes";
 import React from "react";
 
 function App() {
   return (
     <div className="App">
-      <h1>Opa</h1>
+      <RoutesMain />
     </div>
   );
 }
