@@ -4,11 +4,13 @@ export interface IAuthProviderProprs {
 }
 
 export interface IGlobalContext {
-  user: IUser;
-  setUser: Dispatch<SetStateAction<IUser>>;
-  // loginUser(data: IUserLogin): void;
+  user: IUser | undefined;
+  loginUser(data: IUserLogin): void;
+  logoutUser: () => void;
   registerUser(data: IUserRegister): void;
-  // registerCustomer(data: ICustomer): void;
+  getSelfUser: () => Promise<void>;
+  updateUser: (data: any) => void;
+  deleteUser: () => void;
 }
 
 export interface IUser {

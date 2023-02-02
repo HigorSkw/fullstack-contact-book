@@ -6,7 +6,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 import { IUserRegister } from "../../context/GlobalInterfaces";
-import { ContainerRegister } from "./styles";
 
 const Register = () => {
   const { registerUser } = useContext(GlobalContext);
@@ -37,7 +36,7 @@ const Register = () => {
 
   return (
     <>
-      <ContainerRegister>
+      <div>
         <form onSubmit={handleSubmit(registerUser)}>
           <label htmlFor="name">Nome do usuário:</label>
           <input
@@ -90,7 +89,7 @@ const Register = () => {
           <span>Já possuiu uma conta?</span>
           <Link to={"/login"}>Logar</Link>
         </div>
-      </ContainerRegister>
+      </div>
     </>
   );
 };
