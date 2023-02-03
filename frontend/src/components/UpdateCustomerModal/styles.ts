@@ -1,10 +1,17 @@
 import styled from "styled-components";
 
-export const ContainerLogin = styled.div`
+export const ContainerRegister = styled.div`
   width: 100%;
-  margin: 0 auto;
 
-  .container-login {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  overflow: hidden;
+
+  .container-register {
     width: 100%;
     min-height: 100vh;
 
@@ -16,7 +23,7 @@ export const ContainerLogin = styled.div`
     padding: 15px;
   }
 
-  .wrap-login {
+  .wrap-register {
     width: 390px;
     background-color: var(--gray);
     border-radius: 15px;
@@ -24,10 +31,11 @@ export const ContainerLogin = styled.div`
     padding: 77px 55px 33px 55px;
   }
 
-  .login-form {
+  .register-form {
+    width: 100%;
   }
 
-  .login-form-title {
+  .register-form-title {
     display: block;
     font-size: 30px;
     color: azure;
@@ -36,7 +44,7 @@ export const ContainerLogin = styled.div`
     text-align: center;
   }
 
-  .login-form-title img {
+  .register-form-title img {
     width: 90px;
     background-color: transparent;
   }
@@ -59,7 +67,7 @@ export const ContainerLogin = styled.div`
     padding: 0 5px;
   }
 
-  .login-form {
+  .register-form {
     width: 100%;
   }
 
@@ -92,7 +100,7 @@ export const ContainerLogin = styled.div`
 
     background: -webkit-linear-gradient(
       to left,
-      var(--purple),
+      var(--green),
       var(--blue-medium)
     );
     background: -o-linear-gradient(to left, var(--purple), var(--blue-medium));
@@ -136,46 +144,11 @@ export const ContainerLogin = styled.div`
     width: 100%;
   }
 
-  .container-login-form-btn {
+  .container-register-form-btn {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 13px;
-  }
-
-  .login-form-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    height: 50px;
-
-    font-size: 15px;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-
-    line-height: 1.2;
-
-    text-transform: uppercase;
-
-    background: -webkit-linear-gradient(
-      to left,
-      var(--purple),
-      var(--blue-medium)
-    );
-    background: -o-linear-gradient(to left, var(--purple), var(--blue-medium));
-    background: -moz-linear-gradient(
-      to left,
-      var(--purple),
-      var(--blue-medium)
-    );
-    background: linear-gradient(to left, var(--purple), var(--blue-medium));
-  }
-
-  .login-form-btn:hover {
-    cursor: pointer;
   }
 
   .text-center {

@@ -9,8 +9,19 @@ export interface IGlobalContext {
   logoutUser: () => void;
   registerUser(data: IUserRegister): void;
   getSelfUser: () => Promise<void>;
-  updateUser: (data: any) => void;
-  deleteUser: () => void;
+  updateUser: (data: IUpdateUser) => Promise<void>;
+  deleteUser: () => Promise<void>;
+  customerList: ICustomer[];
+  registerCustomer: (data: ICustomer) => Promise<void>;
+  deleteCustomer: () => void;
+  updateCustomer: (data: any) => void;
+  getCustomer: () => Promise<void>;
+  customer: ICustomer | undefined;
+  setCustomer: React.Dispatch<React.SetStateAction<ICustomer | undefined>>;
+  delCustomerModal: boolean;
+  setDelCustomerModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setEditCustomerModal: React.Dispatch<React.SetStateAction<boolean>>;
+  editCustomerModal: boolean;
 }
 
 export interface IUser {
@@ -19,6 +30,8 @@ export interface IUser {
   password: string;
   email: string;
   telefone: string;
+  customers: ICustomer[];
+  created_at: Date;
 }
 
 export interface IUserRegister {
@@ -35,7 +48,22 @@ export interface IUserLogin {
 }
 
 export interface ICustomer {
+  id: string;
   name: string;
   email: string;
   telefone: string;
+  created_at: Date;
+}
+
+export interface IUpdateUser {
+  name?: string;
+  password?: string;
+  email?: string;
+  telefone?: string;
+}
+
+export interface IUpdateCustomer {
+  name?: string;
+  email?: string;
+  telefone?: string;
 }
