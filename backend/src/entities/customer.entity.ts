@@ -26,6 +26,8 @@ export class Customer {
   })
   created_at: Date;
 
-  @ManyToOne((type) => User, (user) => user.customer)
+  @ManyToOne((type) => User, (user) => user.customers, {
+    onDelete: "CASCADE",
+  })
   user: User;
 }
