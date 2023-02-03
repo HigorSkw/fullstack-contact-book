@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
 export const ContainerRegister = styled.div`
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 0.5rem;
+
+  position: fixed;
+  background-color: #00000095;
 
   overflow: hidden;
 
@@ -179,5 +183,10 @@ export const ContainerRegister = styled.div`
 
   .has-val + .focus-input::before {
     width: 100%;
+  }
+
+  .container-login-form-btn {
+    display: flex;
+    gap: 10px;
   }
 `;

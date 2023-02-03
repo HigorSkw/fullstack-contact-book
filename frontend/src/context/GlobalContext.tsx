@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 import { api } from "../services/Api";
 import {
@@ -45,10 +45,12 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
     try {
       const { data }: ILoginRes = await api.post("/login/", dataUser);
       window.localStorage.clear();
+      toast.success("Logado com sucesso!");
 
       window.localStorage.setItem("@contact-book:token", data.token);
       navigate("/dashboard");
     } catch (error) {
+      toast.error("Ocorreu algum problema.");
       console.log(error);
     }
   };
@@ -56,18 +58,19 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
   const logoutUser = () => {
     setUser(undefined);
     localStorage.removeItem("@contact-book:token");
+    toast.success("Logout efetuado!!");
     navigate("/login");
   };
 
   const registerUser = async (data: IUserRegister) => {
     try {
       await api.post("/users", data).then(() => {
-        console.log("Conta criada com sucesso!");
+        toast.success("Conta criada com sucesso!!");
         navigate("/login");
       });
     } catch (error) {
       console.log(error);
-      console.log("Algo deu errado!");
+      toast.error("Ocorreu algum problema.");
     }
   };
 
@@ -81,6 +84,7 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
         setUser(data);
       } catch (error) {
         console.log(error);
+        toast.error("Ocorreu algum problema.");
       }
     }
     if (!token) {
@@ -94,13 +98,12 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
 
     try {
       await api.patch("/users/me", data).then(() => {
-        console.log("Update realizado!!");
         getSelfUser();
-        console.log(user);
+        toast.success("Atualizado com sucesso!");
       });
     } catch (error) {
       console.log(error);
-      toast.error(`${"Não foi possivel atualizar"}`);
+      toast.error("Ocorreu algum problema.");
     }
   };
 
@@ -110,24 +113,24 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
 
     try {
       await api.delete("/users/me").then(() => {
-        console.log("usuário deletado com sucesso!");
+        toast.success("Usuário deletado com sucesso!");
         logoutUser();
       });
     } catch (error) {
       console.log(error);
-      console.log("Algo deu errado!");
+      toast.error("Ocorreu algum problema.");
     }
   };
 
   const registerCustomer = async (data: ICustomer) => {
     try {
       await api.post("/customer", data).then(() => {
-        console.log("Customer criado com sucesso!");
         getSelfUser();
+        toast.success("Contato criado!");
       });
     } catch (error) {
       console.log(error);
-      console.log("Algo deu errado!");
+      toast.error("Ocorreu algum problema.");
     }
   };
 
@@ -143,25 +146,24 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
   const updateCustomer = (data: any) => {
     try {
       api.patch(`/customer/${customer?.id}`, data).then(() => {
-        toast.success(`${"Usuário atualizado!"}`);
         getSelfUser();
+        toast.success("Contato atualizado!");
         setEditCustomerModal(false);
       });
     } catch (error) {
       console.log(error);
-      toast.error(`${"Não foi possivel atualizar"}`);
+      toast.error("Ocorreu algum problema.");
     }
   };
 
   const deleteCustomer = () => {
     try {
       api.delete(`/customer/${customer?.id}`).then(() => {
-        toast.success(`${"Customer deletado!"}`);
         getSelfUser();
       });
     } catch (error) {
       console.log(error);
-      toast.error(`${"Não foi possivel atualizar"}`);
+      toast.error("Ocorreu algum problema.");
     }
   };
 
