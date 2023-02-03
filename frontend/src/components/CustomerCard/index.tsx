@@ -1,6 +1,7 @@
 import { FaUserEdit, FaTrashAlt } from "react-icons/fa";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
+import { ContainerCustomer, NameCustomer, InfoCustomer } from "./styles";
 
 import { ICustomer } from "../../context/GlobalInterfaces";
 interface ICustomerProps {
@@ -8,7 +9,7 @@ interface ICustomerProps {
 }
 
 export const CustomerCard = ({ customer }: ICustomerProps) => {
-  const { setCustomer, user, setDelCustomerModal, setEditCustomerModal } =
+  const { setCustomer, setDelCustomerModal, setEditCustomerModal } =
     useContext(GlobalContext);
 
   const handleClickDel = () => {
@@ -22,14 +23,28 @@ export const CustomerCard = ({ customer }: ICustomerProps) => {
   };
 
   return (
-    <>
-      <div>
-        {customer.email}
-        {customer.name}
-        {customer.telefone}
-        <FaUserEdit onClick={() => handleClickUpdate()} />
-        <FaTrashAlt onClick={() => handleClickDel()} />
-      </div>
-    </>
+    <ContainerCustomer>
+      <NameCustomer>
+        <h3>Nome: {customer.name}</h3>
+      </NameCustomer>
+
+      <InfoCustomer>
+        <div>
+          <div>
+            <h3>Email: {customer.email}</h3>
+          </div>
+          <div>
+            <h3>
+              Telefone:
+              {customer.telefone}
+            </h3>
+          </div>
+        </div>
+        <div>
+          <FaUserEdit onClick={() => handleClickUpdate()} />
+          <FaTrashAlt onClick={() => handleClickDel()} />
+        </div>
+      </InfoCustomer>
+    </ContainerCustomer>
   );
 };

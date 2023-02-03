@@ -15,23 +15,26 @@ export const Container = styled.div`
 `;
 
 export const SectionContainer = styled.section`
-  width: 33rem;
+  width: 300px;
   height: 15rem;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: center;
   flex-direction: column;
+  gap: 3rem;
+
+  font-size: 0.9rem;
 
   background-color: var(--blue-dark);
   color: var(--white);
   border-radius: 15px;
-  padding: 77px 55px 33px 55px;
 
   div {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
-    width: 85%;
+    width: 70%;
   }
 `;

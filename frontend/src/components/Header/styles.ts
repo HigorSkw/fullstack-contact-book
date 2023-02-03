@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 80px;
+  height: 50px;
   text-align: center;
   background: var(--blue-medium);
 
@@ -23,8 +23,8 @@ export const Container = styled.div`
       gap: 10px;
       color: white;
 
-      span > img {
-        width: 30px;
+      span > svg {
+        font-size: 1.5rem;
       }
     }
   }

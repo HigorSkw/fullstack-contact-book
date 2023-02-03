@@ -1,3 +1,48 @@
 import styled from "styled-components";
 
-export const ContainerCustomer = styled.div``;
+export const ContainerCustomer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.4rem;
+
+  min-width: 100%;
+
+  border: 2px solid var(--dark-purple);
+  border-radius: 0.8rem;
+
+  box-shadow: 0 3px 5px #00000080;
+
+  overflow: hidden;
+`;
+
+export const NameCustomer = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+
+  box-shadow: 0 2px 3px #00000080;
+`;
+
+export const InfoCustomer = styled.div`
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+
+  font-size: 1rem;
+
+  color: var(--blue-grey);
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+`;

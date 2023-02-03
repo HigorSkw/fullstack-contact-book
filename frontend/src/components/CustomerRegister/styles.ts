@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerRegister = styled.div`
-  width: 100%;
+  width: 40%;
 
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@ export const ContainerRegister = styled.div`
 
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     padding: 15px;
@@ -28,7 +28,8 @@ export const ContainerRegister = styled.div`
     background-color: var(--gray);
     border-radius: 15px;
     overflow: hidden;
-    padding: 77px 55px 33px 55px;
+    padding: 90px 55px;
+    box-shadow: 6px 9px 10px black;
   }
 
   .register-form {

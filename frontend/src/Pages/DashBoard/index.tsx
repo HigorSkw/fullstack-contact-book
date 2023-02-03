@@ -1,4 +1,10 @@
-import { ContainerHomePage, ButtonsBox } from "./styles";
+import {
+  ContainerHomePage,
+  ButtonsBox,
+  ContainerUser,
+  SectionMain,
+  SectionContacts,
+} from "./styles";
 import { HeaderComponents } from "../../components/Header";
 import CustomerRegister from "../../components/CustomerRegister";
 import { CustomerCard } from "../../components/CustomerCard";
@@ -56,26 +62,35 @@ const HomePage = () => {
 
       <HeaderComponents />
       <ContainerHomePage>
-        <div>
-          <h2>{user?.name}</h2>
+        <ContainerUser>
           <ButtonsBox>
+            <h2>{user?.name} </h2>
             <FaUserEdit onClick={() => setEditUserModal(!editUserModal)} />
             <FaTrashAlt onClick={() => setDeleteUserModal(!deleteUserModal)} />
           </ButtonsBox>
           <span>
             Email: <h3>{user?.email}</h3>
           </span>
-          <h2>Telefone: {user?.telefone}</h2>
-        </div>
-        <CustomerRegister />
-        <div>
-          {user?.customers &&
-            user.customers.map((customer) => (
-              <CustomerCard customer={customer} key={customer.id} />
-            ))}{" "}
-        </div>
+          <span>
+            <h3>Telefone: {user?.telefone}</h3>
+          </span>
+        </ContainerUser>
+        <SectionMain>
+          <CustomerRegister />
 
-        <div>Todos os cadastros abaixo deste usuário</div>
+          <SectionContacts>
+            <section className="container-contatos">
+              <div className="wrap-contatos">
+                <span className="title-customers">Lista de Contatos</span>
+
+                {user?.customers &&
+                  user.customers.map((customer) => (
+                    <CustomerCard customer={customer} key={customer.id} />
+                  ))}
+              </div>
+            </section>
+          </SectionContacts>
+        </SectionMain>
       </ContainerHomePage>
     </>
   );
