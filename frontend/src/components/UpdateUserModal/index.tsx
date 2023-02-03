@@ -4,48 +4,36 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState, Dispatch, SetStateAction } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { IUserRegister } from "../../context/GlobalInterfaces";
+import { IUpdateUser } from "../../context/GlobalInterfaces";
+import { Button } from "../Button";
 
-const Register = () => {
-  const { registerUser } = useContext(GlobalContext);
+export interface IEditUserModalProprs {
+  setEditUserModal: Dispatch<SetStateAction<boolean>>;
+}
+
+const EditUserModal = ({ setEditUserModal }: IEditUserModalProprs) => {
+  const { updateUser } = useContext(GlobalContext);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const registerSchema = yup.object().shape({
-    name: yup.string().required("Name Obrigatório"),
-    email: yup.string().email("Não é um e-mail").required("E-mail obrigatório"),
-    telefone: yup
-      .string()
-      .required("Campo obrigatório!")
-      .max(11, "Número inválido")
-      .matches(
-        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
-        "Número inválido"
-      ),
-    password: yup
-      .string()
-      .required("Deve conter uma senha")
-      .matches(
-        /(^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*_-])).{8,}$/,
-        "Ex: Aa@12345678."
-      ),
-    confirm_password: yup
-      .string()
-      .oneOf([yup.ref("password")], "Confirmação deve ser iguar a senha"),
+    name: yup.string(),
+    email: yup.string().email("Não é um e-mail"),
+    telefone: yup.string(),
+    password: yup.string(),
   });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IUserRegister>({
+  } = useForm<IUpdateUser>({
+    reValidateMode: "onSubmit",
     resolver: yupResolver(registerSchema),
   });
 
@@ -53,8 +41,8 @@ const Register = () => {
     <ContainerRegister>
       <div className="container-register">
         <div className="wrap-register">
-          <form className="register-form" onSubmit={handleSubmit(registerUser)}>
-            <span className="register-form-title">Faça seu cadastro!</span>
+          <form className="register-form" onSubmit={handleSubmit(updateUser)}>
+            <span className="register-form-title">Editar contato!</span>
             <span className="register-form-title">
               <br />
             </span>
@@ -115,34 +103,13 @@ const Register = () => {
               <span className="focus-input" data-placeholder="Password*"></span>
             </div>
 
-            <div className="wrap-input">
-              <input
-                className={confirmPassword !== "" ? "has-val input" : "input"}
-                type="password"
-                id="confirm_password"
-                {...register("confirm_password")}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-              <span
-                className="focus-input"
-                data-placeholder="Confirm Password*"
-              ></span>
-
-              {errors.confirm_password && (
-                <span>{errors.confirm_password.message}</span>
-              )}
-            </div>
             <div className="container-login-form-btn">
-              <button className="register-form-btn" type="submit">
-                Enviar
-              </button>
-            </div>
-
-            <div className="text-register-page">
-              <span className="txt1">Já possuiu uma conta? </span>
-              <Link className="txt2" to={"/login"}>
-                Logar
-              </Link>
+              <Button text="Update" color="white" type="submit" />
+              <Button
+                text="Cancelar"
+                color="white"
+                onClick={() => setEditUserModal(false)}
+              />
             </div>
           </form>
         </div>
@@ -151,4 +118,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default EditUserModal;
