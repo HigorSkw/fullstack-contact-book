@@ -33,6 +33,7 @@ export class User {
 
   @OneToMany((type) => Customer, (customer) => customer.user, {
     eager: true,
+    cascade: true,
   })
-  customer: Customer[];
+  customers: Customer[];
 }
