@@ -58,7 +58,7 @@ yarn typeorm migration:run -d src/data-source.ts
 - Rodando a aplicação - no terminal da pasta backend, digite o sequinte comando para executar a api 
 
 ```VSCode ou Shell
-yarn start
+yarn dev
 ```
 
 Se tudo der certo no console aparecerá que a porta do banco de dados e a porta da api configurada no arquivo .env
