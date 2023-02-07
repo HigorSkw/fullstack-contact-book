@@ -19,6 +19,17 @@
 <br/>
 <br/>
 
+# Spoiler do projeto
+
+<div style="display: inline-block">
+    <img width="48%" src="https://github.com/HigorSkw/fullstack-contact-book/blob/main/spoiler-production/pagina-login.JPG" alt="pag-login">
+    <img width="48%" src="https://github.com/HigorSkw/fullstack-contact-book/blob/main/spoiler-production/pagina-register.JPG" alt="pag-register">
+    <img width="48%" src="https://github.com/HigorSkw/fullstack-contact-book/blob/main/spoiler-production/pagina-dashboard-1.JPG" alt="pag-dash-1">
+    <img width="48%" src="https://github.com/HigorSkw/fullstack-contact-book/blob/main/spoiler-production/pagina-dashboard-2.JPG" alt="pag-dash-2">
+    <img width="48%" src="https://github.com/HigorSkw/fullstack-contact-book/blob/main/spoiler-production/pagina-dashboard-3.JPG" alt="pag-dash-3">
+</div>
+
+
 # Executando o projeto
 
 <br>
@@ -91,3 +102,5 @@ E ai, curtiu?
 Seu feedback é importante para mim, caso sinta confortável, me manda um email ou me envie mensagem em alguma das minhas redes sociais para aperfeiçoar o meu código ;)
 
 -- Higor Skowronski
+
+
