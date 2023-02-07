@@ -28,7 +28,12 @@ export const DeleteCustomerModal = ({
       <SectionContainer>
         <h2> Deletar esse contato?</h2>
         <div>
-          <Button text="Deletar" color="white" onClick={() => handleDelete()} />
+          <Button
+            text="Deletar"
+            color="white"
+            typeColor="typeColorDelete"
+            onClick={() => handleDelete()}
+          />
           <Button
             text="Cancelar"
             color="white"

@@ -1,6 +1,7 @@
 import { ContainerLogin } from "./styles";
 import { GlobalContext } from "../../context/GlobalContext";
 import { IUserLogin } from "../../context/GlobalInterfaces";
+import img1 from "../../assets/undraw_add_friends_re_3xte.svg";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -28,6 +29,9 @@ const Login = () => {
 
   return (
     <ContainerLogin>
+      <div className="container-img">
+        <img src={img1} alt="imagem-add-friends" />
+      </div>
       <div className="container-login">
         <div className="wrap-login">
           <form className="login-form" onSubmit={handleSubmit(loginUser)}>
@@ -44,6 +48,7 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <span className="focus-input" data-placeholder="Email"></span>
+              <span className="errors-message">{errors.email?.message}</span>
             </div>
             <div className="wrap-input">
               <input
@@ -53,7 +58,9 @@ const Login = () => {
                 {...register("password")}
                 onChange={(e) => setPassword(e.target.value)}
               />
+
               <span className="focus-input" data-placeholder="password"></span>
+              <span className="errors-message">{errors.email?.message}</span>
             </div>
 
             <div className="container-login-form-btn">

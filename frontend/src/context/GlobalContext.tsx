@@ -36,6 +36,7 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
   const [customerList, setCustomerList] = useState<ICustomer[]>([]);
   const [customer, setCustomer] = useState<ICustomer>();
 
+  const [editUserModal, setEditUserModal] = useState(false);
   const [delCustomerModal, setDelCustomerModal] = useState(false);
   const [editCustomerModal, setEditCustomerModal] = useState(false);
 
@@ -93,12 +94,23 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
   };
 
   const updateUser = async (data: IUpdateUser) => {
+    if (
+      data.name === "" &&
+      data.email === "" &&
+      data.telefone === "" &&
+      data.password === ""
+    ) {
+      toast.error("Não houve atualizações");
+      return;
+    }
+
     const token = window.localStorage.getItem("@contact-book:token");
     api.defaults.headers.common.authorization = `Bearer ${token}`;
 
     try {
       await api.patch("/users/me", data).then(() => {
         getSelfUser();
+        setEditUserModal(false);
         toast.success("Atualizado com sucesso!");
       });
     } catch (error) {
@@ -144,6 +156,10 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
   };
 
   const updateCustomer = (data: any) => {
+    if (data.name === "" && data.email === "" && data.telefone === "") {
+      toast.error("Não houve atualizações");
+      return;
+    }
     try {
       api.patch(`/customer/${customer?.id}`, data).then(() => {
         getSelfUser();
@@ -188,6 +204,8 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
         setDelCustomerModal,
         setEditCustomerModal,
         editCustomerModal,
+        editUserModal,
+        setEditUserModal,
       }}
     >
       {children}

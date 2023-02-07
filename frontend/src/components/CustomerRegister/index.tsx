@@ -57,12 +57,8 @@ const CustomerRegister = () => {
                 {...register("name")}
                 onChange={(e) => setName(e.target.value)}
               />
-              <span
-                className="focus-input"
-                data-placeholder={
-                  errors.name?.message !== "" ? "Name *" : errors.name?.message
-                }
-              ></span>
+              <span className="focus-input" data-placeholder="Name *"></span>
+              <span className="errors-message">{errors.name?.message}</span>
             </div>
 
             <div className="wrap-input">
@@ -73,14 +69,8 @@ const CustomerRegister = () => {
                 {...register("email")}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <span
-                className="focus-input"
-                data-placeholder={
-                  errors.email?.message !== ""
-                    ? "Email *"
-                    : errors.name?.message
-                }
-              ></span>
+              <span className="focus-input" data-placeholder="Email *"></span>
+              <span className="errors-message">{errors.email?.message}</span>
             </div>
 
             <div className="wrap-input">
@@ -92,6 +82,7 @@ const CustomerRegister = () => {
                 onChange={(e) => setTelefone(e.target.value)}
               />
               <span className="focus-input" data-placeholder="Telefone*"></span>
+              <span className="errors-message">{errors.telefone?.message}</span>
             </div>
 
             <div className="container-login-form-btn">

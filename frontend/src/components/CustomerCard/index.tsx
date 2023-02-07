@@ -34,10 +34,7 @@ export const CustomerCard = ({ customer }: ICustomerProps) => {
             <h3>Email: {customer.email}</h3>
           </div>
           <div>
-            <h3>
-              Telefone:
-              {customer.telefone}
-            </h3>
+            <h3>Telefone: {customer.telefone}</h3>
           </div>
         </div>
         <div>

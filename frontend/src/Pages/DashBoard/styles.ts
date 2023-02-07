@@ -50,8 +50,7 @@ export const ButtonsBox = styled.div`
     transition: 0.8s;
 
     :hover {
-      color: var(--light-green);
-
+      color: var(--blue-dark);
       transition: 0.8s;
     }
   }

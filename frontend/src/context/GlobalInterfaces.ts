@@ -22,6 +22,8 @@ export interface IGlobalContext {
   setDelCustomerModal: React.Dispatch<React.SetStateAction<boolean>>;
   setEditCustomerModal: React.Dispatch<React.SetStateAction<boolean>>;
   editCustomerModal: boolean;
+  editUserModal: boolean;
+  setEditUserModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IUser {

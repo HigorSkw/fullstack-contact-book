@@ -3,9 +3,20 @@ import styled from "styled-components";
 export const ContainerLogin = styled.div`
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container-img {
+    width: 50%;
+
+    img {
+      width: 100%;
+    }
+  }
 
   .container-login {
-    width: 100%;
+    width: 70%;
     min-height: 100vh;
 
     display: flex;
@@ -206,5 +217,10 @@ export const ContainerLogin = styled.div`
 
   .has-val + .focus-input::before {
     width: 100%;
+  }
+
+  .errors-message {
+    color: #ff9696;
+    font-size: 0.9rem;
   }
 `;
