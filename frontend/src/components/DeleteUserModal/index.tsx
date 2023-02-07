@@ -28,7 +28,12 @@ export const DeleteUserModal = ({
       <SectionContainer>
         <h2>Deletar essa conta?</h2>
         <div>
-          <Button text="Deletar" color="white" onClick={() => deleteUser()} />
+          <Button
+            text="Deletar"
+            color="white"
+            typeColor="typeColorDelete"
+            onClick={() => deleteUser()}
+          />
           <Button
             text="Cancelar"
             color="white"

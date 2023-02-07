@@ -5,9 +5,12 @@ export const ContainerRegister = styled.div`
   margin: 0 auto;
 
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .container-register {
-    width: 100%;
+    width: 70%;
     min-height: 100vh;
 
     display: flex;
@@ -200,5 +203,18 @@ export const ContainerRegister = styled.div`
 
   .has-val + .focus-input::before {
     width: 100%;
+  }
+
+  .errors-message {
+    color: #ff9696;
+    font-size: 0.9rem;
+  }
+
+  .container-img {
+    width: 35%;
+
+    img {
+      width: 100%;
+    }
   }
 `;

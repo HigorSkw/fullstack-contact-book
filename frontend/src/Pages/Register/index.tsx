@@ -1,4 +1,5 @@
 import { ContainerRegister } from "./styles";
+import img3 from "../../assets/undraw_reminder_re_fe15.svg";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -19,11 +20,12 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const registerSchema = yup.object().shape({
-    name: yup.string().required("Name Obrigatório"),
+    name: yup.string().required("Nome Obrigatório"),
     email: yup.string().email("Não é um e-mail").required("E-mail obrigatório"),
     telefone: yup
       .string()
       .required("Campo obrigatório!")
+      .min(8, "Numero inválido")
       .max(11, "Número inválido")
       .matches(
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
@@ -67,12 +69,8 @@ const Register = () => {
                 {...register("name")}
                 onChange={(e) => setName(e.target.value)}
               />
-              <span
-                className="focus-input"
-                data-placeholder={
-                  errors.name?.message !== "" ? "Name *" : errors.name?.message
-                }
-              ></span>
+              <span className="focus-input" data-placeholder="Name *"></span>
+              <span className="errors-message">{errors.name?.message}</span>
             </div>
 
             <div className="wrap-input">
@@ -83,14 +81,8 @@ const Register = () => {
                 {...register("email")}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <span
-                className="focus-input"
-                data-placeholder={
-                  errors.email?.message !== ""
-                    ? "Email *"
-                    : errors.name?.message
-                }
-              ></span>
+              <span className="focus-input" data-placeholder="Email *"></span>
+              <span className="errors-message">{errors.email?.message}</span>
             </div>
 
             <div className="wrap-input">
@@ -102,6 +94,7 @@ const Register = () => {
                 onChange={(e) => setTelefone(e.target.value)}
               />
               <span className="focus-input" data-placeholder="Telefone*"></span>
+              <span className="errors-message">{errors.telefone?.message}</span>
             </div>
 
             <div className="wrap-input">
@@ -113,6 +106,7 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <span className="focus-input" data-placeholder="Password*"></span>
+              <span className="errors-message">{errors.password?.message}</span>
             </div>
 
             <div className="wrap-input">
@@ -128,9 +122,9 @@ const Register = () => {
                 data-placeholder="Confirm Password*"
               ></span>
 
-              {errors.confirm_password && (
-                <span>{errors.confirm_password.message}</span>
-              )}
+              <span className="errors-message">
+                {errors.confirm_password?.message}
+              </span>
             </div>
             <div className="container-login-form-btn">
               <button className="register-form-btn" type="submit">
@@ -146,6 +140,9 @@ const Register = () => {
             </div>
           </form>
         </div>
+      </div>
+      <div className="container-img">
+        <img src={img3} alt="imagem-register" />
       </div>
     </ContainerRegister>
   );

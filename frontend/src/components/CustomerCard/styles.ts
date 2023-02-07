@@ -45,4 +45,17 @@ export const InfoCustomer = styled.div`
     flex-direction: column;
     gap: 0.2rem;
   }
+
+  svg {
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: 0.8s;
+
+    :hover {
+      color: var(--blue-dark);
+      transition: 0.8s;
+    }
+  }
 `;

@@ -207,4 +207,9 @@ export const ContainerRegister = styled.div`
   .has-val + .focus-input::before {
     width: 100%;
   }
+
+  .errors-message {
+    color: #ff9696;
+    font-size: 0.9rem;
+  }
 `;

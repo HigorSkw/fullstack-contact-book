@@ -42,7 +42,7 @@ const EditUserModal = ({ setEditUserModal }: IEditUserModalProprs) => {
       <div className="container-register">
         <div className="wrap-register">
           <form className="register-form" onSubmit={handleSubmit(updateUser)}>
-            <span className="register-form-title">Editar contato!</span>
+            <span className="register-form-title">Editar usuário!</span>
             <span className="register-form-title">
               <br />
             </span>

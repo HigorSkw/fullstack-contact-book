@@ -27,9 +27,10 @@ const HomePage = () => {
     delCustomerModal,
     setDelCustomerModal,
     editCustomerModal,
+    editUserModal,
+    setEditUserModal,
   } = useContext(GlobalContext);
 
-  const [editUserModal, setEditUserModal] = useState(false);
   const [deleteUserModal, setDeleteUserModal] = useState(false);
 
   const navigate = useNavigate();
