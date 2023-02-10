@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src/app.ts",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "typeorm": "typeorm-ts-node-commonjs",
+    "build": "tsc",
+    "start": "node dist/src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Higor Skowronski <higor.skowronski@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",

@@ -30,4 +30,4 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   });
 });
 
-app.listen(3001);
+app.listen(process.env.PORT || 3001);
