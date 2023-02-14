@@ -32,9 +32,6 @@ export const ContainerRegister = styled.div`
     box-shadow: 6px 9px 10px black;
   }
 
-  .register-form {
-  }
-
   .register-form-title {
     display: block;
     font-size: 30px;
@@ -211,5 +208,17 @@ export const ContainerRegister = styled.div`
   .errors-message {
     color: #ff9696;
     font-size: 0.9rem;
+  }
+
+  @media (max-width: 1130px) {
+    width: 95%;
+
+    .wrap-register {
+      padding: 25px 20px;
+    }
+
+    .register-form-title {
+      font-size: 1.3rem;
+    }
   }
 `;

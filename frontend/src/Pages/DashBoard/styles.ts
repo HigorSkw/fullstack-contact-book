@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 export const ContainerHomePage = styled.div`
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
 
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  overflow: hidden;
   align-items: center;
 `;
 
@@ -17,6 +16,7 @@ export const ContainerUser = styled.div`
   width: 100%;
   justify-content: space-evenly;
   height: 7rem;
+  min-height: 110px;
   background: var(--purple);
   flex-direction: column;
   border: 1px solid black;
@@ -32,6 +32,15 @@ export const ContainerUser = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 1rem;
+  }
+
+  @media (max-width: 400px) {
+    h2 {
+      font-size: 1.1rem;
+    }
+    span {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -58,10 +67,14 @@ export const ButtonsBox = styled.div`
 
 export const SectionMain = styled.main`
   display: flex;
-  width: 90%;
+  width: 95%;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: center;
+
+  @media (max-width: 1130px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const SectionContacts = styled.section`
@@ -86,7 +99,7 @@ export const SectionContacts = styled.section`
 
   .container-contatos {
     width: 100%;
-    min-height: 100vh;
+    min-height: 70vh;
 
     display: flex;
     flex-wrap: wrap;
@@ -109,5 +122,22 @@ export const SectionContacts = styled.section`
     padding: 90px 55px;
     box-shadow: 6px 9px 10px black;
     gap: 1rem;
+  }
+
+  @media (max-width: 1130px) {
+    width: 95%;
+    max-height: 40rem;
+    min-height: 20rem;
+    overflow-y: scroll;
+
+    font-size: 1rem;
+
+    .wrap-contatos {
+      padding: 50px 20px;
+    }
+
+    .title-customers {
+      font-size: 1.1rem;
+    }
   }
 `;
