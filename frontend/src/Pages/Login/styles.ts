@@ -223,4 +223,25 @@ export const ContainerLogin = styled.div`
     color: #ff9696;
     font-size: 0.9rem;
   }
+
+  @media (max-width: 900px) {
+    flex-direction: column-reverse;
+
+    .container-login {
+      min-height: 70vh;
+      min-width: 100vw;
+    }
+
+    .container-login {
+      margin-bottom: 2rem;
+      min-width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 70%;
+      }
+    }
+  }
 `;

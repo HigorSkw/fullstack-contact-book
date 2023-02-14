@@ -73,9 +73,11 @@ const HomePage = () => {
             Email: <h3>{user?.email}</h3>
           </span>
           <span>
-            <h3>Telefone: {user?.telefone}</h3>
+            Telefone:
+            <h3> {user?.telefone}</h3>
           </span>
         </ContainerUser>
+
         <SectionMain>
           <CustomerRegister />
 

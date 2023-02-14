@@ -25,6 +25,10 @@ export const NameCustomer = styled.div`
   padding: 0.5rem;
 
   box-shadow: 0 2px 3px #00000080;
+
+  @media (max-width: 500px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const InfoCustomer = styled.div`
@@ -57,5 +61,9 @@ export const InfoCustomer = styled.div`
       color: var(--blue-dark);
       transition: 0.8s;
     }
+  }
+
+  @media (max-width: 500px) {
+    font-size: 0.7rem;
   }
 `;

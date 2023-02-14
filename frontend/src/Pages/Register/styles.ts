@@ -217,4 +217,25 @@ export const ContainerRegister = styled.div`
       width: 100%;
     }
   }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+
+    .container-register {
+      min-height: 70vh;
+      min-width: 100vw;
+    }
+
+    .container-img {
+      margin: 2rem 0;
+      min-width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 70%;
+      }
+    }
+  }
 `;

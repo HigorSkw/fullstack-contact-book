@@ -10,6 +10,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
+  h1 {
+    font-size: 1.5rem;
+  }
+
   .Header {
     display: flex;
     width: 95%;
@@ -71,5 +75,17 @@ export const Container = styled.div`
   .header-btn:hover {
     opacity: 0.8;
     transition: 0s;
+  }
+
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 370px) {
+    h1 {
+      font-size: 1rem;
+    }
   }
 `;
