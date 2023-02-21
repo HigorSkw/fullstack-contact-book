@@ -104,6 +104,18 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
       return;
     }
 
+    if (data.email === "") {
+      delete data.email;
+    }
+
+    if (data.telefone === "") {
+      delete data.telefone;
+    }
+
+    if (data.password === "") {
+      delete data.password;
+    }
+
     const token = window.localStorage.getItem("@contact-book:token");
     api.defaults.headers.common.authorization = `Bearer ${token}`;
 
@@ -160,6 +172,15 @@ export const GlobalProvider = ({ children }: IAuthProviderProprs) => {
       toast.error("Não houve atualizações");
       return;
     }
+
+    if (data.email === "") {
+      delete data.email;
+    }
+
+    if (data.telefone === "") {
+      delete data.telefone;
+    }
+
     try {
       api.patch(`/customer/${customer?.id}`, data).then(() => {
         getSelfUser();
