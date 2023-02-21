@@ -33,6 +33,10 @@ export const ContainerRegister = styled.div`
     border-radius: 15px;
     overflow: hidden;
     padding: 77px 55px 33px 55px;
+
+    @media (min-width: 1130px) {
+      margin-left: 8rem;
+    }
   }
 
   .register-form {
